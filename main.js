@@ -174,10 +174,10 @@ Example:
 If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "brown": 1, "fox": 2 }
 */
 function flipArray(arr) {
-  var newObj = {};
-  arr.map(function(current, index){
-    
-  });
+  return arr.reduce((count, ele, index) => {
+    count[ele] = index;
+    return count;
+  }, {});
 }
 
 
@@ -198,7 +198,12 @@ Example:
 If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: "Horse", 2015: "Sheep" }
 
 */
-
+function arraysToObject(arr) {
+  return arr.reduce((count, ele, index) => {
+    count[ele[0]] = ele[1];
+    return count;
+  }, {});
+}
 
 
 
@@ -219,7 +224,12 @@ Example:
 If you pass it "hello" then it should return "olleh"
 */
 
-
+function reverseString(str) {
+  if(!str.length){
+    return '';
+  }
+  return str[str.length - 1].concat(reverseString(str.substring(0, str.length-1)));
+}
 
 
 
@@ -243,7 +253,13 @@ If you pass it "haha" then it should return true because "ha" (the first half) e
 If you pass it "yay" then it should return false because it's odd
 If you pass it "heehaw" then it should return false because "hee" doesn't equal "haw"
 */
-
+function repeats(str) {
+  str = str.split('')
+  if (!str.length){
+    return true;
+  }
+  return str;
+}
 
 
 
